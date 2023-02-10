@@ -1,0 +1,9 @@
+.hero-image {
+  background-image: url("/img/hero.jpg");
+  height: 400px;
+}
+
+.article-link:hover {
+  text-decoration: underline;
+  color: blue;
+}
