@@ -7,4 +7,4 @@ router.get("/", publicRoutes.index);
 // Rutas relacionadas a la parte pública del sitio web:
 // ...
 
-module.exports = router;
+module.exports = router; 
