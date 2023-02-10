@@ -18,48 +18,48 @@
     <div class="container mt-5">
       <div class="row d-flex justify-content-center">
         <div class="col-6 card border-0 ">
-          <form action="/usuarios" method="post" class="shadow mb-5 rounded">
-            <h5 class="card-header p-3">Crear nuevo usuario</h5>
+          <form action="/usuarios/<%= articles.id %>/editar" method="post" class="shadow mb-5 rounded">
+            <h5 class="card-header p-3">Modificar artículo</h5>
             <div class="mb-3 mt-3 px-4">
-              <label for="exampleInputEmail1" class="form-label">Nombre</label>
+              <label for="title" class="form-label">Título</label>
               <input
                 type="text"
-                placeholder="Ingresar nombre..."
                 class="form-control"
-                name="firstname"
-                id="firstname"
+                name="title"
+                id="title"
+                
               />
             </div>
             <div class="mb-3 px-4">
-              <label for="exampleInputPassword1" class="form-label">Apellido</label>
+              <label for="content" class="form-label">Contenido</label>
               <input
                 type="text"
-                placeholder="Ingresar apellido..."
                 class="form-control"
-                name="lastname"
-                id="lastname"
+                name="content"
+                id="content"
+                
               />
             </div>
             <div class="mb-3 px-4">
-              <label for="exampleInputPassword1" class="form-label">Edad</label>
+              <label for="img" class="form-label">Imágen</label>
               <input
-                type="number"
-                placeholder="Ingresar edad..."
+                type="text"
                 class="form-control"
-                name="age"
-                id="age"
+                name="img"
+                id="img"
+                
               />
             </div>
-            <button id="nuevoUsuario" type="submit" class="btn btn-success mx-4 mb-3">
-              Guardar
+            <button id="article-edited" type="submit" class="btn btn-success mx-4 mb-3">
+              Modificar
             </button>
           </form>
           <div class="btn btn-secondary text-white" id="btn-back">
-            <a class="text-white text-decoration-none" href="/articulos">🢀 Volver</a>
           </div>
         </div>
-      </div>
     </div>
+</div>
+<a class="text-white text-decoration-none" href="/articulos">🢀 Volver</a>
 
     <%-include("partials/footer")%>
     <script
