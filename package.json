@@ -17,5 +17,13 @@
   },
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipejarodich27/Ejercicio_blog21.git"
+  },
+  "bugs": {
+    "url": "https://github.com/felipejarodich27/Ejercicio_blog21/issues"
+  },
+  "homepage": "https://github.com/felipejarodich27/Ejercicio_blog21#readme",
   "description": ""
 }

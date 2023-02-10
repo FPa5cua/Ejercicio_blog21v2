@@ -1,10 +1,22 @@
 const Articles = require("../models/Article");
-const sequelize = require("sequelize")
+const sequelize = require("sequelize");
 // Display a listing of the resource.
-function index(req, res) {}
+async function index(req, res) {
+  const articles = await Articles.findAll();
+  console.log(articles);
+  res.render("articleAdmin", {
+    articles,
+  });
+}
 
 // Display the specified resource.
-async function show(req, res) {}
+async function show(req, res) {
+  const { id } = req.params.id;
+  const articles = await Articles.findByPk(id);
+  res.render("aboutUs", {
+    articles,
+  });
+}
 
 // Show the form for creating a new resource
 async function create(req, res) {}

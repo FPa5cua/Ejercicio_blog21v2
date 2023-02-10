@@ -1,15 +1,13 @@
 const Articles = require("../models/Article");
-const sequelize = require("sequelize")
+const sequelize = require("sequelize");
+
 async function index(req, res) {
-    const articles = await Articles.findAll();
-    console.log(articles);
-    res.render("home", {
-        articles,
-    })
+  const articles = await Articles.findAll();
+  res.render("home", {
+    articles,
+  });
 }
 
-
-
 module.exports = {
-    index,
-  };
+  index,
+};

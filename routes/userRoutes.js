@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const userController = require("../controllers/articleController");
+const userController = require("../controllers/userController");
 
 // Rutas relacionadas a los usuarios:
 // ...

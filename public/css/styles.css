@@ -7,3 +7,10 @@
   text-decoration: underline;
   color: blue;
 }
+
+.hero-article {
+  background-image: url("/img/hero-article.jpg");
+  height: 400px;
+
+  object-fit: cover;
+}
