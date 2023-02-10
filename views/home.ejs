@@ -25,14 +25,15 @@
     <section class="container">
       <div class="row text-left border-bottom p-5">
         <div class="col-12 m-5">
+          <% for(const article of articles){ %>
           <a href="/articulo/:id" class="text-decoration-none text-black">
+
             <p class="h1 fw-bold article-link">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-              quas laudantium iusto unde culpa velit minus beatae itaque dolor
-              voluptatum?
+              <%= article.title %>
             </p>
           </a>
-          <small>Lorem ipsum dolor sit amet.</small>
+          <small> <%= article.content %></small>
+          <% } %>
         </div>
       </div>
     </section>

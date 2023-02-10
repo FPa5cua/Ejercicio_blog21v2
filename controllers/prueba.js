@@ -1,7 +1,13 @@
-
-function index(req, res) {
-    res.render("home")
+const Articles = require("../models/Article");
+const sequelize = require("sequelize")
+async function index(req, res) {
+    const articles = await Articles.findAll();
+    console.log(articles);
+    res.render("home", {
+        articles,
+    })
 }
+
 
 
 module.exports = {

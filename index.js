@@ -6,7 +6,6 @@ const dbInitialSetup = require("./dbInitialSetup");
 const APP_PORT = process.env.APP_PORT;
 const app = express();
 
-console.log(process.env)
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
