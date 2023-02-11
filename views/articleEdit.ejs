@@ -18,7 +18,7 @@
     <div class="container mt-5">
       <div class="row d-flex justify-content-center">
         <div class="col-6 card border-0">
-          <form action="/articulos/<%= articles.id %>" method="get" class="shadow mb-5 rounded">
+          <form action="/articulos/<%= idParams %>/update" method="get" class="shadow mb-5 rounded">
             <h5 class="card-header p-3">Modificar articulo</h5>
             <div class="mb-3 mt-3 px-4">
               <label for="title" class="form-label">Título</label>
@@ -46,21 +46,7 @@
               <label for="image" class="form-label">Imágen</label>
               <input type="file" class="form-control" name="image" id="image" value=<%= articles.image %> />
             </div>
-            <div class="mb-3 px-4">
-              <label for="createdAt" class="form-label">Fecha de Creación</label>
-              <input type="date" class="form-control" name="createdAt" id="createdAt" value=<%= articles.createdAt %>/>
-            </div>
-            <div class="mb-3 px-4">
-              <label for="" class="form-label">Autor</label>
-              <input
-                type="text"
-                class="form-control"
-                name=""
-                id=""
-                placeholder="Este es un campo representativo por ahora (Hay que hacer las relaciones)"
-                
-              />
-            </div>
+           
             <button id="nuevoArticulo" type="submit" class="btn btn-success mx-4 mb-3">
               Modificar
             </button>
