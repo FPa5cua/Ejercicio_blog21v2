@@ -14,3 +14,14 @@
 
   object-fit: cover;
 }
+
+#table-article {
+  table-layout:fixed;
+}
+
+.content-col {
+  white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
