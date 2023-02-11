@@ -20,19 +20,21 @@ async function show(req, res) {
 
 // Show the form for creating a new resource
 async function create(req, res) {
-  res.render("articleCreate")
+  res.render("articleCreate");
 }
 
 // Store a newly created resource in storage.
-async function store(req, res) {}
+async function store(req, res) {
+  res.send("Soy el post de create");
+}
 
 // Show the form for editing the specified resource.
 async function edit(req, res) {
   const articles = await Articles.findAll();
-    console.log(articles);
-    res.render("articleEdit", {
-        articles,
-    })
+  console.log(articles);
+  res.render("articleEdit", {
+    articles,
+  });
 }
 
 // Update the specified resource in storage.
