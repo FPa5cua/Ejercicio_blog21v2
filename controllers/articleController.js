@@ -24,10 +24,18 @@ async function create(req, res) {
 }
 
 // Store a newly created resource in storage.
-async function store(req, res) {}
+async function store(req, res) {
+  res.send("Soy el post de create");
+}
 
 // Show the form for editing the specified resource.
-async function edit(req, res) {}
+async function edit(req, res) {
+  const idParams = req.params.id;
+  const articles = await Articles.findByPk(idParams);
+  res.render("articleEdit", {
+    idParams,
+  });
+}
 
 // Update the specified resource in storage.
 async function update(req, res) {

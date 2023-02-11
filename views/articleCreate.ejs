@@ -17,40 +17,48 @@
     <%-include("partials/nav")%>
     <div class="container mt-5">
       <div class="row d-flex justify-content-center">
-        <div class="col-6 card border-0 ">
-          <form action="/usuarios" method="post" class="shadow mb-5 rounded">
-            <h5 class="card-header p-3">Crear nuevo usuario</h5>
+        <div class="col-6 card border-0">
+          <form action="/articulos" method="post" class="shadow mb-5 rounded">
+            <h5 class="card-header p-3">Crear nuevo articulo</h5>
             <div class="mb-3 mt-3 px-4">
-              <label for="exampleInputEmail1" class="form-label">Nombre</label>
+              <label for="title" class="form-label">Título</label>
               <input
                 type="text"
-                placeholder="Ingresar nombre..."
+                placeholder="Ingrese un título..."
                 class="form-control"
-                name="firstname"
-                id="firstname"
+                name="title"
+                id="title"
               />
             </div>
             <div class="mb-3 px-4">
-              <label for="exampleInputPassword1" class="form-label">Apellido</label>
+              <label for="content" class="form-label">Contenido</label>
               <input
                 type="text"
-                placeholder="Ingresar apellido..."
+                placeholder="Ingrese el contenido..."
                 class="form-control"
-                name="lastname"
-                id="lastname"
+                name="content"
+                id="content"
               />
             </div>
             <div class="mb-3 px-4">
-              <label for="exampleInputPassword1" class="form-label">Edad</label>
+              <label for="image" class="form-label">Imágen</label>
+              <input type="file" class="form-control" name="image" id="image" />
+            </div>
+            <div class="mb-3 px-4">
+              <label for="createdAt" class="form-label">Fecha de Creación</label>
+              <input type="date" class="form-control" name="createdAt" id="createdAt" />
+            </div>
+            <div class="mb-3 px-4">
+              <label for="" class="form-label">Autor</label>
               <input
-                type="number"
-                placeholder="Ingresar edad..."
+                type="text"
                 class="form-control"
-                name="age"
-                id="age"
+                name=""
+                id=""
+                placeholder="Este es un campo representativo por ahora (Hay que hacer las relaciones)"
               />
             </div>
-            <button id="nuevoUsuario" type="submit" class="btn btn-success mx-4 mb-3">
+            <button id="nuevoArticulo" type="submit" class="btn btn-success mx-4 mb-3">
               Guardar
             </button>
           </form>
@@ -62,10 +70,7 @@
     </div>
 
     <%-include("partials/footer")%>
-    <script
-    src="https://kit.fontawesome.com/fefc105dd4.js"
-    crossorigin="anonymous"
-  ></script>
+    <script src="https://kit.fontawesome.com/fefc105dd4.js" crossorigin="anonymous"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
