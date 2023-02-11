@@ -20,7 +20,7 @@ async function show(req, res) {
 
 // Show the form for creating a new resource
 async function create(req, res) {
-  res.render("articleCreate")
+  res.render("articleCreate");
 }
 
 // Store a newly created resource in storage.
@@ -29,17 +29,24 @@ async function store(req, res) {}
 // Show the form for editing the specified resource.
 async function edit(req, res) {
   const articles = await Articles.findAll();
-    console.log(articles);
-    res.render("articleEdit", {
-        articles,
-    })
+  console.log(articles);
+  res.render("articleEdit", {
+    articles,
+  });
 }
 
 // Update the specified resource in storage.
 async function update(req, res) {}
 
 // Remove the specified resource from storage.
-async function destroy(req, res) {}
+async function destroy(req, res) {
+  const idParams = req.params.id;
+  await Articles.destroy({
+    where: { id: `${idParams}` },
+  });
+
+  return res.redirect("/articulos");
+}
 
 // Otros handlers...
 // ...
