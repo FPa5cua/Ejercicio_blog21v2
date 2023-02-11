@@ -30,8 +30,8 @@ async function store(req, res) {
 
 // Show the form for editing the specified resource.
 async function edit(req, res) {
-  const articles = await Articles.findAll();
-  console.log(articles);
+  const id = req.params.id;
+  const articles = await Articles.findByPk(id);
   res.render("articleEdit", {
     articles,
   });
