@@ -27,16 +27,22 @@ async function create(req, res) {
 async function store(req, res) {}
 
 // Show the form for editing the specified resource.
-async function edit(req, res) {
-  const articles = await Articles.findAll();
-  console.log(articles);
-  res.render("articleEdit", {
-    articles,
-  });
-}
+async function edit(req, res) {}
 
 // Update the specified resource in storage.
-async function update(req, res) {}
+async function update(req, res) {
+  const idParams = req.params.id;
+  const newArticle = req.body;
+  console.log(newArticle);
+  await Articles.upsert({
+    id: `${idParams}`,
+    title: `${newArticle.title}`, //valores ingresados en campos de texto
+    content: `${newArticle.content}`,
+    image: `${newArticle.img}`,
+  });
+
+  return res.redirect("/articulos");
+}
 
 // Remove the specified resource from storage.
 async function destroy(req, res) {
