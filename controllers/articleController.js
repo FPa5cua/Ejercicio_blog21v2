@@ -11,7 +11,7 @@ async function index(req, res) {
 
 // Display the specified resource.
 async function show(req, res) {
-  const { id } = req.params.id;
+  const id = req.params.id;
   const articles = await Articles.findByPk(id);
   res.render("aboutUs", {
     articles,
