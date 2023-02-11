@@ -34,6 +34,7 @@ async function edit(req, res) {
   const articles = await Articles.findByPk(idParams);
   res.render("articleEdit", {
     idParams,
+    articles,
   });
 }
 
@@ -46,7 +47,7 @@ async function update(req, res) {
     id: `${idParams}`,
     title: `${newArticle.title}`, //valores ingresados en campos de texto
     content: `${newArticle.content}`,
-    image: `${newArticle.img}`,
+    //image: `${newArticle.image}`,
   });
 
   return res.redirect("/articulos");
