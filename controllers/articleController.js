@@ -41,7 +41,14 @@ async function edit(req, res) {
 async function update(req, res) {}
 
 // Remove the specified resource from storage.
-async function destroy(req, res) {}
+async function destroy(req, res) {
+  const idParams = req.params.id;
+  await Articles.destroy({
+    where: { id: `${idParams}` },
+  });
+
+  return res.redirect("/articulos");
+}
 
 // Otros handlers...
 // ...
