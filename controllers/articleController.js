@@ -5,7 +5,7 @@ const sequelize = require("sequelize");
 // Display a listing of the resource.
 async function index(req, res) {
   const articles = await Articles.findAll();
-  console.log(articles);
+  // console.log(articles);
   res.render("articleAdmin", {
     articles,
   });
@@ -16,9 +16,9 @@ Articles.belongsTo(Users, { notNull: true, foreignKey: { allowNull: false }});
 // Display the specified resource.
 async function show(req, res) {
   const id = req.params.id;
-  const articles = await Articles.findByPk(id, {include: Users});
+  const articles = await Articles.findByPk(id, { include: Users });
 
-  console.log(articles)
+  // console.log(articles);
   res.render("aboutUs", {
     articles,
   });
@@ -26,7 +26,10 @@ async function show(req, res) {
 
 // Show the form for creating a new resource
 async function create(req, res) {
-  res.render("articleCreate");
+  const usersList = await Users.findAll();
+  res.render("articleCreate", {
+    users: usersList,
+  });
 }
 
 // Store a newly created resource in storage.
@@ -48,7 +51,7 @@ async function edit(req, res) {
 async function update(req, res) {
   const idParams = req.params.id;
   const newArticle = req.body;
-  console.log(newArticle);
+  // console.log(newArticle);
   await Articles.upsert({
     id: `${idParams}`,
     title: `${newArticle.title}`, //valores ingresados en campos de texto

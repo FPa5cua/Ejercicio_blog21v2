@@ -45,25 +45,19 @@
               <input type="file" class="form-control" name="image" id="image" />
             </div>
             <div class="mb-3 px-4">
-              <label for="createdAt" class="form-label">Fecha de Creación</label>
-              <input type="date" class="form-control" name="createdAt" id="createdAt" />
-            </div>
-            <div class="mb-3 px-4">
-              <label for="" class="form-label">Autor</label>
-              <input
-                type="text"
-                class="form-control"
-                name=""
-                id=""
-                placeholder="Este es un campo representativo por ahora (Hay que hacer las relaciones)"
-              />
+              <select name="users" class="form-select" aria-label="Default select example">
+                <option selected>Autor</option>
+                <% for (const item of users) { %>
+                <option value="<%= item.id %>"><%= item.firstname + item.lastname %></option>
+                <% } %>
+              </select>
             </div>
             <button id="nuevoArticulo" type="submit" class="btn btn-success mx-4 mb-3">
               Guardar
             </button>
           </form>
-          <div class="btn btn-secondary text-white" id="btn-back">
-            <a class="text-white text-decoration-none" href="/articulos">🢀 Volver</a>
+          <div>
+            <a class="d-block btn btn-secondary text-decoration-none" href="/articulos">🢀 Volver</a>
           </div>
         </div>
       </div>
