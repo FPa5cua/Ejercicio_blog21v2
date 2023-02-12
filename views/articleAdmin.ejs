@@ -45,16 +45,24 @@
               <td><%=article.author%></td>
               <td>
                 <a href="/articulos/<%=article.id%>/editar" class="btn btn-sm btn-primary">Editar</a
-                ><a href="/articulos/<%=article.id%>/eliminar" class="btn btn-sm btn-danger mt-1"
-                  >Eliminar</a
+                ><button  class="btn btn-sm btn-danger mt-1" id="buttonDelete"
+                  >Eliminar</button
                 >
-              </td>
+              </td> 
             </tr>
             <%}%>
           </table>
         </div>
       </div>
     </div>
+
+    <!-- Modal Delete -->
+    <%-include("partials/modalDeleteArticles")%>
+    <!-- --- -->
+
+    <!-- Nuestro Js Front -->
+    <script src="javascript/index.js"></script>
+    <!-- Js Bootstrap -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
