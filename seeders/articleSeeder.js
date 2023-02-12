@@ -11,6 +11,7 @@ module.exports = async () => {
       title: faker.lorem.sentence(5),
       content: faker.lorem.paragraphs(),
       image: faker.image.abstract(),
+      userId: faker.random.numeric(1)
     });
   }
 
