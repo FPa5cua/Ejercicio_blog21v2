@@ -16,12 +16,12 @@
 }
 
 #table-article {
-  table-layout:fixed;
+  table-layout: fixed;
 }
 
 .content-col {
-  white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
+  white-space: pre;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
