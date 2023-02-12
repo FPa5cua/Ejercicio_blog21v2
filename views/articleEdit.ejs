@@ -18,7 +18,11 @@
     <div class="container mt-5">
       <div class="row d-flex justify-content-center">
         <div class="col-6 card border-0">
-          <form action="/articulos/<%= idParams %>/update" method="post" class="shadow mb-5 rounded">
+          <form
+            action="/articulos/<%= idParams %>/update"
+            method="post"
+            class="shadow mb-5 rounded"
+          >
             <h5 class="card-header p-3">Modificar articulo</h5>
             <div class="mb-3 mt-3 px-4">
               <label for="title" class="form-label">Título</label>
@@ -28,7 +32,7 @@
                 class="form-control"
                 name="title"
                 id="title"
-                value=<%= articles.title %>
+                value=<%=articles.title%>
               />
             </div>
             <div class="mb-3 px-4">
@@ -39,20 +43,25 @@
                 class="form-control"
                 name="content"
                 id="content"
-                value=<%= articles.content %>
-              />
+                value=<%=articles.content%>    />
             </div>
             <div class="mb-3 px-4">
               <label for="image" class="form-label">Imágen</label>
-              <input type="file" class="form-control" name="image" id="image" value=<%= articles.image %> />
+              <input
+                type="file"
+                class="form-control"
+                name="image"
+                id="image"
+                value=<%=articles.image%>
+              />
             </div>
-           
+
             <button id="nuevoArticulo" type="submit" class="btn btn-success mx-4 mb-3">
               Modificar
             </button>
           </form>
-          <div class="btn btn-secondary text-white" id="btn-back">
-            <a class="text-white text-decoration-none" href="/articulos">🢀 Volver</a>
+          <div>
+            <a class="d-block btn btn-secondary text-decoration-none" href="/articulos">🢀 Volver</a>
           </div>
         </div>
       </div>
