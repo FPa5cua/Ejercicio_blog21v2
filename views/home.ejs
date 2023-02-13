@@ -29,7 +29,7 @@
           <a href="/articulos/<%= article.id %>" class="text-decoration-none text-black">
             <p class="h1 fw-bold article-link"><%= article.title %></p>
           </a>
-          <small>Creado por <%= article.user.firstname %> <%= article.user.lastname %> el <%= article.createdAt %> </small>
+          <small>Creado por <%= article.user.firstname %> <%= article.user.lastname %> el <%= format(article.createdAt, 'dd MM yyyy') %> </small>
         </div>
         <% } %>
       </div>

@@ -45,10 +45,10 @@
               <input type="file" class="form-control" name="image" id="image" />
             </div>
             <div class="mb-3 px-4">
-              <select name="users" class="form-select" aria-label="Default select example">
+              <select name="users" class="form-select" aria-label="Default select example" id="users">
                 <option selected>Autor</option>
-                <% for (const item of users) { %>
-                <option value="<%= item.id %>"><%= item.firstname + item.lastname %></option>
+                <% for (const article of articles) { %>
+                <option value="<%= article.user.id %>"><%= article.user.firstname %> <%= article.user.lastname %></option>
                 <% } %>
               </select>
             </div>

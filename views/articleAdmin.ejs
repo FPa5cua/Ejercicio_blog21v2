@@ -40,10 +40,10 @@
               <td><%=article.title%></td>
               <td class="content-col"><%=article.content%></td>
               <td>
-                <img class="w-75 h-100" src="<%= article.image %>" alt="imagen<%=article.id %>" />
+                <img class="w-75" src="<%= article.image %>" alt="imagen<%=article.id %>" />
               </td>
-              <td><%=article.createdAt%></td>
-              <td><%=article.user.firstname%> <%= article.user.lastname %></td>
+              <td><%= format(article.createdAt, 'dd MM yyyy') %></td>
+              <td><%= article.user.firstname %> <%= article.user.lastname%></td>
               <td>
                 <a href="/articulos/<%=article.id%>/editar" class="btn btn-sm btn-primary">Editar</a
                 ><button  class="btn btn-sm btn-danger mt-1" id="buttonDelete"

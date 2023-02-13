@@ -2,13 +2,14 @@ const Articles = require("../models/Article");
 const Users = require("../models/User");
 const Comments = require("../models/Comment");
 const sequelize = require("sequelize");
+const { format } = require('date-fns');
 Articles.belongsTo(Users, { notNull: true, foreignKey: { allowNull: false }});
 // Display a listing of the resource.
 async function index(req, res) {
   const articles = await Articles.findAll({ include: Users });
   // console.log(articles);
   res.render("articleAdmin", {
-    articles,
+    articles, format,
   });
 }
 
@@ -18,24 +19,25 @@ async function show(req, res) {
   const id = req.params.id;
   const articles = await Articles.findByPk(id, { include: Users });
   res.render("aboutUs", {
-    articles,
+    articles, format,
   });
 }
 
 // Show the form for creating a new resource
 async function create(req, res) {
-  const usersList = await Users.findAll();
+  const articles = await Articles.findAll({ include: Users });
  return res.render("articleCreate", {
-    users: usersList,
+    articles, 
   });
 }
 
 // Store a newly created resource in storage.
 async function store(req, res) {
   const newArticle = req.body;
-  await Articles.create({    
+  await Articles.create({   include: Users,
     title: `${newArticle.title}`,
     content: `${newArticle.content}`,
+    userId: `${newArticle.users}`,
   });
   return res.redirect("/articulos");
 }
