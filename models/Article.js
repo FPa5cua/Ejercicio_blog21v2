@@ -18,12 +18,6 @@ class Article extends Model {
         image: {
           type: DataTypes.TEXT,
         },
-        createdAt: {
-          type: DataTypes.DATEONLY,
-    get: function() {
-       return moment(this.getDataValue('DateTime')).format('DD MMMM YYYY');
-    }
-      },
     },
       {
         sequelize,
