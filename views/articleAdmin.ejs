@@ -14,7 +14,6 @@
     <title>Articles</title>
   </head>
   <body>
-    <%-include("partials/nav")%>
     <div class="container-fluid mt-5">
       <div class="row d-flex justify-content-center">
         <div class="col-10">
@@ -42,13 +41,14 @@
               <td>
                 <img class="w-75 h-100" src="<%= article.image %>" alt="imagen<%=article.id %>" />
               </td>
-              <td><%=article.createdAt%></td>
-              <td><%=article.user.firstname%> <%= article.user.lastname %></td>
+              <td><%=article.createdat%></td>
+              <td><%=article.author%></td>
               <td>
                 <a href="/articulos/<%=article.id%>/editar" class="btn btn-sm btn-primary">Editar</a
-                ><button  class="btn btn-sm btn-danger mt-1" id="buttonDelete"
-                  >Eliminar</button
-                >
+                ><button type="button" onclick="deleteArticle('<%= article.id %>')" class="btn btn-danger mt-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  Borrar
+                </button>
+                
               </td> 
             </tr>
             <%}%>
@@ -60,7 +60,7 @@
     <!-- Modal Delete -->
     <%-include("partials/modalDeleteArticles")%>
     <!-- --- -->
-    <%-include("partials/footer")%>
+
     <!-- Nuestro Js Front -->
     <script src="javascript/index.js"></script>
     <!-- Js Bootstrap -->
