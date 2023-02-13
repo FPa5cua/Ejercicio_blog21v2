@@ -12,7 +12,7 @@ module.exports = async () => {
     articles.push({
       title: faker.lorem.sentence(5),
       content: faker.lorem.paragraphs(),
-      image: faker.image.abstract(),
+      image: faker.image.abstract(1234, 1234, true),
       createdAt: faker.date.between('2020-01-01T00:00:00.000Z', '2030-01-01T00:00:00.000Z'),
       userId: faker.datatype.number({ 
         'min': 1, 
