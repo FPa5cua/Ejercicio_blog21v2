@@ -23,9 +23,9 @@
     </div>
 
     <section class="container">
-      <div class="row text-left border-bottom p-5">
+      <div class="row  text-md-left">
         <% for(const article of articles){ %>
-        <div class="col-12 m-5 mb-3">
+        <div class="col-12 p-5 mb-3 border-bottom">
           <a href="/articulos/<%= article.id %>" class="text-decoration-none text-black">
             <p class="h1 fw-bold article-link"><%= article.title %></p>
           </a>
@@ -35,13 +35,8 @@
       </div>
     </section>
 
-    <!--
-  }
- <div class="p-0 container-fluid position-relative">
-      <h1>Hack Academy</h1>
-      <img class="position-absolute" src="/img/hero.jpg" alt="Desktop image" />
-    </div>
-     -->
+  
+
 
     <%-include("partials/footer")%>
 
