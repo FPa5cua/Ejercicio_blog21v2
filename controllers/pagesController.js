@@ -27,8 +27,8 @@ async function showContact(req, res) {
   res.render("contact");
 }
 
-async function showAboutUs(req, res) {
-  res.render("aboutUs");
+async function showarticleDetail(req, res) {
+  res.render("articleDetail");
 }
 
 // Otros handlers...
@@ -37,5 +37,5 @@ async function showAboutUs(req, res) {
 module.exports = {
   showHome,
   showContact,
-  showAboutUs,
+  showarticleDetail,
 };

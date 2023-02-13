@@ -1,4 +1,7 @@
 const { Sequelize } = require("sequelize");
+const Articles = require("../models/Article");
+const Users = require("../models/User");
+const Comments = require("../models/Comment");
 
 const sequelize = new Sequelize(
   process.env.DB_DATABASE, // Ej: hack_academy_db
@@ -23,7 +26,17 @@ Article.initModel(sequelize);
  * Luego de definir los modelos, se pueden establecer relaciones entre los
  * mismos (usando métodos como belongsTo, hasMany y belongsToMany)...
  */
-User.hasMany(Article, { foreignKey: 'userId' });
+Users.hasMany(Comments);
+Comments.belongsTo(Users);
+
+Articles.belongsTo(Users);
+Users.hasMany(Articles);
+
+Comments.belongsTo(Articles);
+Article.hasMany(Comments);
+
+
+
 
 module.exports = {
   sequelize,

@@ -5,11 +5,17 @@ faker.locale = "es";
 
 module.exports = async () => {
   const users = [];
+  // const articles = (await Article.findAll()).length;
 
   for (let i = 0; i < 10; i++) {
     users.push({
       firstname: faker.name.firstName(),
-      lastname: faker.name.lastName()
+      lastname: faker.name.lastName(),
+      // userId: faker.datatype.number({ 
+      //   'min': 1, 
+      //   'max': users
+          
+      // })
     });
   }
 

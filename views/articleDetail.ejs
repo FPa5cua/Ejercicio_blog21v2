@@ -21,7 +21,7 @@
         <h1 class="display-5 text-white fw-bold">
           Man must explore, and this is exploration at its greatest
         </h1>
-        <p class="h4 text-center text-white">Creado por <%= articles.user.firstname %> <%= articles.user.lastname %> el <%= articles.createdAt %></p>
+        <p class="h4 text-center text-white">Creado por <%= article.user.firstname %> <%= article.user.lastname %> el <%= article.createdAt %></p>
       </div>
     </section>
    
@@ -32,7 +32,7 @@
       <div>
       
         <p class="mt-2">
-          <%= articles.content %>
+          <%= article.content %>
         </p>
         <p class="mt-2">
           
@@ -64,20 +64,23 @@
       <h3 class="fw-bold mb-3">Comentarios</h4>
 
       <div class="mb-3 pb-3 border-bottom">
-        <p>
-          “Collaboratively administrate empowered markets via plug-and-play networks. Dynamically
-          procrastinate B2C users after installed base benefits. Dramatically visualize customer
-          directed convergence without revolutionary ROI.”
-        </p>
-        <small>Luke Skywalker</small>
+        <% for (const comment of article.comments) { %>
+           
+      
+
+            <p><%= comment.content %></p>
+            
+            <small><%=comment.user.firstname %> <%=comment.user.lastname %> </small>
+          
+
+           
+
+        <%}%>
+    
+        
+
       </div>
-      <div class="mb-3 pb-3">
-        <p>
-          “Collaboratively administrate empowered markets via plug-and-play networks. Dynamically
-          procrastinate B2C users after.”
-        </p>
-        <small>Luke Skywalker</small>
-      </div>
+
     </section>
 
     <%-include("partials/footer")%>

@@ -39,13 +39,13 @@
               <td><%=article.title%></td>
               <td class="content-col"><%=article.content%></td>
               <td>
-                <img class="w-75" src="<%= article.image %>" alt="imagen<%=article.id %>" />
+                <img class="w-50" src="<%= article.image %>" alt="imagen<%=article.id %>" />
               </td>
               <td><%= format(article.createdAt, 'dd MM yyyy') %></td>
               <td><%= article.user.firstname %> <%= article.user.lastname%></td>
               <td>
                 <a href="/articulos/<%=article.id%>/editar" class="btn btn-sm btn-primary">Editar</a
-                ><button type="button" onclick="deleteArticle('<%= article.id %>')" class="btn btn-danger mt-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                ><button type="button" onclick="deleteArticle('<%= article.id %>')" class="btn btn-danger btn-sm mt-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
                   Borrar
                 </button>
                 

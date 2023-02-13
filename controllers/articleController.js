@@ -3,7 +3,7 @@ const Users = require("../models/User");
 const Comments = require("../models/Comment");
 const sequelize = require("sequelize");
 const { format } = require('date-fns');
-Articles.belongsTo(Users, { notNull: true, foreignKey: { allowNull: false }});
+
 // Display a listing of the resource.
 async function index(req, res) {
   const articles = await Articles.findAll({ include: Users });
@@ -13,13 +13,12 @@ async function index(req, res) {
   });
 }
 
-
 // Display the specified resource.
 async function show(req, res) {
   const id = req.params.id;
-  const articles = await Articles.findByPk(id, { include: Users });
-  res.render("aboutUs", {
-    articles, format,
+  const article = await Articles.findByPk(id, { include: [Users,  {model: Comments, include: Users} ] });  
+  res.render("articleDetail", {       
+    article, format, id, 
   });
 }
 
