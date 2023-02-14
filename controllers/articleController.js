@@ -3,6 +3,7 @@ const Users = require("../models/User");
 const Comments = require("../models/Comment");
 const sequelize = require("sequelize");
 const { format } = require('date-fns');
+const formidable = require("formidable");
 
 // Display a listing of the resource.
 async function index(req, res) {
@@ -32,14 +33,22 @@ async function create(req, res) {
 
 // Store a newly created resource in storage.
 async function store(req, res) {
-  const newArticle = req.body;
-  await Articles.create({   include: Users,
-    title: `${newArticle.title}`,
-    content: `${newArticle.content}`,
-    userId: `${newArticle.users}`,
-  });
-  return res.redirect("/articulos");
-}
+  const form = formidable({
+    multiples: true,
+    uploadDir: __dirname + "/../public/img",
+    keepExtensions: true,
+    });
+    form.parse(req, async (err, fields, files) => {
+      await Articles.create({   include: Users,
+          title: fields.title,
+          content: fields.content,
+          userId: fields.users,
+          image: files.image.newFilename
+        });
+    });
+    return res.redirect("/articulos");
+  }    
+
 
 // Show the form for editing the specified resource.
 async function edit(req, res) {
@@ -53,17 +62,24 @@ async function edit(req, res) {
 
 // Update the specified resource in storage.
 async function update(req, res) {
-  const idParams = req.params.id;
-  const newArticle = req.body;
-  // console.log(newArticle);
-  await Articles.upsert({
-    id: `${idParams}`,
-    title: `${newArticle.title}`, //valores ingresados en campos de texto
-    content: `${newArticle.content}`,
-    //image: `${newArticle.image}`,
-  });
+  const form = formidable({
+    multiples: true,
+    uploadDir: __dirname + "/../public/img",
+    keepExtensions: true,
+    });  
+    
+    form.parse(req, async (err, fields, files) => {
+      const idParams = req.params.id;
+      await Articles.upsert({
+          id: idParams,
+          title: fields.title,
+          content: fields.content,         
+          image: files.image.newFilename
+        });
+      });
+    
+    return res.redirect("/articulos");
 
-  return res.redirect("/articulos");
 }
 
 // Remove the specified resource from storage.
