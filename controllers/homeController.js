@@ -1,14 +1,14 @@
-const Articles = require("../models/Article");
-const Users = require("../models/User");
-const Comments = require("../models/Comment");
+const Article = require("../models/Article");
+const User = require("../models/User");
+const Comment = require("../models/Comment");
 const sequelize = require("sequelize");
 const { format } = require('date-fns');
 
 
-Articles.belongsTo(Users, { notNull: true, foreignKey: { allowNull: false }});
+Article.belongsTo(User, { notNull: true, foreignKey: { allowNull: false }});
 
 async function home(req, res) {
-  const articles = await Articles.findAll({ include: Users });
+  const articles = await Article.findAll({ include: User });
   return res.render("home", {
     articles, format,
   });
