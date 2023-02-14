@@ -7,7 +7,7 @@ const { format } = require('date-fns');
 
 Articles.belongsTo(Users, { notNull: true, foreignKey: { allowNull: false }});
 
-async function index(req, res) {
+async function home(req, res) {
   const articles = await Articles.findAll({ include: Users });
   return res.render("home", {
     articles, format,
@@ -15,5 +15,5 @@ async function index(req, res) {
 }
 
 module.exports = {
-  index,
+  home,
 };

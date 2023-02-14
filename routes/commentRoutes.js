@@ -4,7 +4,7 @@ const articleController = require("../controllers/articleController");
 
 // Rutas relacionadas a los comentarios:
 // ...
-router.post("/", articleController.show);
+router.post("/", articleController.showComment);
 
 
 module.exports = router;

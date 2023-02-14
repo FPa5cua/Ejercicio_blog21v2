@@ -43,7 +43,7 @@
                   <img class="w-50" src="<%=article.image%>" alt="imagen del articulo <%=article.title%>" />
                 <% } else { %>
                   <img class="w-50" src="/img/<%=article.image%>" alt="imagen del articulo <%=article.title%>" />
-                <% } %>
+                  <% } %>
               </td>
               <td><%= format(article.createdAt, 'dd MM yyyy') %></td>
               <td><%= article.user.firstname %> <%= article.user.lastname%></td>

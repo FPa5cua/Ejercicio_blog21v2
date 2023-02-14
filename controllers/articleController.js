@@ -92,10 +92,15 @@ async function destroy(req, res) {
   return res.redirect("/articulos");
 }
 
+async function showComment (req, res) {
+
+}
+
 // Otros handlers...
 // ...
 
 module.exports = {
+  showComment,
   index,
   show,
   create,
