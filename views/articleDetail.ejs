@@ -40,19 +40,19 @@
       </div>
       <hr />
 
-      <form action="/comment" method="post" class="mb-5">
+      <form action="/comentarios/<%= article.id %>" method="post" class="mb-5">
         <label for="UserComment" class="fw-bold h2">Agregue su comentario</label>
         <input
           class="form-control mb-3"
           type="text"
           placeholder="Ingrese su Nombre"
           name="firstname"
-          id="UserComment"
+          id="firstname"
         />
         <textarea
           class="form-control mb-3"
-          name="commentTextArea"
-          id="commentTextArea"
+          name="commentCreated"
+          id="commentCreated"
           cols="30"
           rows="8"
         ></textarea>
@@ -70,7 +70,7 @@
 
             <p><%= comment.content %></p>
             
-            <small><%=comment.user.firstname %> <%=comment.user.lastname %> </small>
+           <!-- No funciona el input de nombre D: -->
           
 
            
