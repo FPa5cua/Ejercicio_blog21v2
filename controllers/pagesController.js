@@ -20,15 +20,15 @@ const { Article } = require("../models");
 
 async function showHome(req, res) {
   const articles = await Article.findAll();
-  res.render("home", { articles });
+  return res.render("home", { articles });
 }
 
 async function showContact(req, res) {
-  res.render("contact");
+  return res.render("contact");
 }
 
 async function showarticleDetail(req, res) {
-  res.render("articleDetail");
+  return res.render("articleDetail");
 }
 
 // Otros handlers...

@@ -9,7 +9,7 @@ Articles.belongsTo(Users, { notNull: true, foreignKey: { allowNull: false }});
 
 async function index(req, res) {
   const articles = await Articles.findAll({ include: Users });
-  res.render("home", {
+  return res.render("home", {
     articles, format,
   });
 }

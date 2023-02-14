@@ -9,7 +9,7 @@ const formidable = require("formidable");
 async function index(req, res) {
   const articles = await Articles.findAll({ include: Users });
   // console.log(articles);
-  res.render("articleAdmin", {
+  return res.render("articleAdmin", {
     articles, format,
   });
 }
@@ -18,7 +18,7 @@ async function index(req, res) {
 async function show(req, res) {
   const id = req.params.id;
   const article = await Articles.findByPk(id, { include: [Users,  {model: Comments, include: Users} ] });  
-  res.render("articleDetail", {       
+  return res.render("articleDetail", {       
     article, format, id, 
   });
 }
@@ -54,7 +54,7 @@ async function store(req, res) {
 async function edit(req, res) {
   const idParams = req.params.id;
   const articles = await Articles.findByPk(idParams);
-  res.render("articleEdit", {
+  return res.render("articleEdit", {
     idParams,
     articles,
   });
