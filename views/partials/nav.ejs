@@ -1,6 +1,11 @@
 <nav class="navbar navbar-light bg-dark sticky-top">
   <div class="container">
     <a class="navbar-brand text-white fw-bold" href="/">Hack the Blog</a>
-    <a href="/articulos" class="btn btn-primary">Admin</a>
+    <div class="nav-links">
+      <a href="/articulos" class="btn btn-primary">Admin</a>
+      <a href="/login" class="btn btn-success">iniciar sesión</a>
+      <form action="/logout" method="post"> <input type="submit" value="cerrar sesion" class="btn btn-danger"></form>
+
+    </div>
   </div>
 </nav>

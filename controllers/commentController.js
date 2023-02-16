@@ -6,13 +6,17 @@ const { format } = require("date-fns");
 const formidable = require("formidable");
 
 async function showComment(req, res) {
-  const comment = {
-    content: req.body.commentCreated,
-    username: req.body.firstname,
-    articleId: req.params.articleId,
-  };
-  await Comment.create(comment);
-  res.redirect(`/articulos/${req.params.articleId}`);
+  if (req.isAuthenticated()) {
+    const comment = {
+      content: req.body.commentCreated,
+      username: req.body.firstname,
+      articleId: req.params.articleId,
+    };
+    await Comment.create(comment);
+    res.redirect(`/articulos/${req.params.articleId}`);
+  } else {
+    res.redirect("/login");
+  }
 }
 
 module.exports = {
