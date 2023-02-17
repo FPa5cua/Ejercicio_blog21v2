@@ -5,7 +5,7 @@ const LocalStrategy = require("passport-local");
 const express = require("express");
 const app = express();
 const routes = require("./routes");
-const { User } = require("./models");
+const { User, Role } = require("./models");
 const userController = require("./controllers/userController");
 const APP_PORT = process.env.APP_PORT;
 const bcrypt = require("bcryptjs");
@@ -52,7 +52,7 @@ passport.serializeUser((user, cb) => {
 });
 passport.deserializeUser(async (id, cb) => {
   try {
-    const user = await User.findByPk(id);
+    const user = await User.findByPk(id, {include: Role});
     cb(null, user); // Usuario queda disponible en req.user.
   } catch (err) {
     cb(err, User);
